@@ -3,9 +3,9 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const expressLayout = require('express-ejs-layouts');
-const router = require('../routes/router');
+const router = require('./routes/router');
 
-const database = require('../app/config/database');
+const database = require('./app/config/database');
 
 app.use(express.static('public/assets'));
 
