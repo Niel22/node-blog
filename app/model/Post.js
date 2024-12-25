@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 class Post {
+  
   static getSchema() {
     
     return new Schema(

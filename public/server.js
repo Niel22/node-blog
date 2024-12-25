@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const expressLayout = require('express-ejs-layouts');
-const router = require('../routes/main');
+const router = require('../routes/router');
 
 const database = require('../app/config/database');
 

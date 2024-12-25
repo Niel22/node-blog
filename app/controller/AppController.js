@@ -1,11 +1,13 @@
+const FetchAllPost = require("../actions/Post/FetchAllPost");
+
+
 class AppController{
 
     async index(req, res){
-        const locals = {
-            title: "Home",
-            description: "This is home page"
-        }
-        res.render('index', {locals: locals});
+
+        const posts = await FetchAllPost.execute();
+
+        return res.render('index', {posts: posts});
     }
 
     async about(req, res){
@@ -13,7 +15,7 @@ class AppController{
             title: "About",
             description: "This is About page"
         }
-        res.render('about', {locals: locals});
+        return res.render('about', {locals: locals});
     }
 }
 
