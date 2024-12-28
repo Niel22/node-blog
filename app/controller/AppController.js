@@ -7,7 +7,7 @@ class AppController{
 
         const locals = {
             title: "Home",
-            description: "This is Home page"
+            description: "This is Home"
         }
         const posts = await FetchAllPost.execute();
 
@@ -17,7 +17,7 @@ class AppController{
     async about(req, res){
         const locals = {
             title: "About",
-            description: "This is About page"
+            description: "This is About"
         }
         return res.render('about', {locals: locals});
     }
