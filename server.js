@@ -4,10 +4,13 @@ const express = require('express');
 const app = express();
 const expressLayout = require('express-ejs-layouts');
 const router = require('./routes/router');
+const bodyParser = require('./app/middleware/bodyParser');
 
 const database = require('./app/config/database');
 
 app.use(express.static('public/assets'));
+
+bodyParser.init(app);
 
 // db
 database.connect();

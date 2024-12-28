@@ -7,10 +7,10 @@
   
   <section class="articles">
     <h2 class="articles__heading">Latest Posts</h2>
-    <% if(posts && posts.length > 0){ %>
+    <% if(data.posts && data.count > 0){ %>
   
     <ul class="article-ul">
-        <% posts.forEach(post => { %>
+        <% data.posts.forEach(post => { %>
          
             <li>
                 <a href="/post/<%= post._id %>">
@@ -24,7 +24,10 @@
     </ul>
   
   
-      <a href="/page" class="pagination">&lt; View Older Posts</a>
+    <% if (data.nextPage != null) { %>
+     
+      <a href="/?page=<%= data.nextPage%>" class="pagination">&lt; View Older Posts</a>
+      <% } %>
     
     <% }else{ %>
 

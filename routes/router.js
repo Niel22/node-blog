@@ -8,4 +8,5 @@ router.get('/about', AppController.about);
 
 router.post('/post', PostController.store);
 router.get('/post/:id', PostController.show);
+router.post('/search', AppController.search)
 module.exports = router;

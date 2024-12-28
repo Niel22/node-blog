@@ -1,4 +1,5 @@
 const FetchAllPost = require("../actions/Post/FetchAllPost");
+const FetchSearchResult = require("../actions/Search/FetchSearchResult");
 
 
 class AppController{
@@ -9,9 +10,11 @@ class AppController{
             title: "Home",
             description: "This is Home"
         }
-        const posts = await FetchAllPost.execute();
 
-        return res.render('index', {posts: posts, locals: locals});
+        const data = await FetchAllPost.execute(req);
+
+        
+        return res.render('index', {data: data.data, locals: locals});
     }
 
     async about(req, res){
@@ -20,6 +23,18 @@ class AppController{
             description: "This is About"
         }
         return res.render('about', {locals: locals});
+    }
+
+    async search(req, res)
+    {
+        const data = await FetchSearchResult.execute(req);
+
+        if(data != "")
+        {
+            return res.render('search', {data: data});
+        }
+
+        return res.send('No result found');
     }
 }
 
